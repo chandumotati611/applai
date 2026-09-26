@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: applai-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: applai
+      POSTGRES_PASSWORD: applai_dev
+      POSTGRES_DB: applai
+    ports:
+      - "5432:5432"
+    volumes:
+      - applai_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  applai_postgres_data:
